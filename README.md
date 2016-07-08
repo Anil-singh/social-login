@@ -1,5 +1,6 @@
 ## Social Login 
-        Social login contains sample code in php to enable a user login and registration from social media sites Facebook,Linkedin,Twitter,Google.
+        Social login contains sample code in php to enable a user login and registration from social media 
+        sites Facebook,Linkedin,Twitter,Google.
 
 ## Example
 ### Login with Facebook
@@ -38,8 +39,8 @@
 ## Installation
 
 ### Dependecies
-   PHP
-   MySql
+        PHP
+        MySql
 
 ### Database - social_login.sql
     Need to create a database named social_login and improt social_login.sql file to that db.This db users table will store users profiles data from social media sites. 
