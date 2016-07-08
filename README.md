@@ -58,8 +58,28 @@
                 //Record does not exist,insert to DB, set session and redirect to index.php
                 $result = $obj_user->addUser($first_name,$last_name,$email,$gender);
         }
+### Login with Twitter
 
-
+	//redirect user to twitter
+	$twitter_url = $connection->getAuthorizeURL($request_token['oauth_token']);		
+	header('Location: ' . $twitter_url); 
+	
+	//Fresh authentication
+	$connection = new TwitterOAuth(TWITTER_APP_ID, TWITTER_APP_SECRET);
+	$request_token = $connection->getRequestToken(TWITTER_CALLBACK_URL);
+	
+	//Successful response returns oauth_token, oauth_token_secret, user_id, and screen_name
+	$connection = new TwitterOAuth(TWITTER_APP_ID, TWITTER_APP_SECRET, $_SESSION['token'] , $_SESSION['token_secret']);
+	$access_token = $connection->getAccessToken($_REQUEST['oauth_verifier']);
+	
+	/* Initiating user class */
+	$obj_user = new User();
+	/* Checking if user already exist in system and getting user details */
+	$arr = $obj_user->getUser($twitter_id,false);
+	if(empty($arr)){ //Record does not exist,insert to DB, set session and redirect to index.php
+		$result = $obj_user->addUser($first_name,$last_name,$email,$gender,$twitter_id);
+	}
+	
 ## Installation
 
 ### Dependecies
