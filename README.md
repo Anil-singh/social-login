@@ -50,7 +50,6 @@
         } else {
         	$authUrl = $gClient->createAuthUrl();
         }
-        
         $obj_user = new User();
         /* Checking if user already exist in system and getting user details */
         $arr = $obj_user->getUser($email);
