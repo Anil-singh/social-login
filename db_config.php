@@ -1,6 +1,6 @@
 <?php
 define ('DB_USER', "root");
-define ('DB_PASSWORD', "");
+define ('DB_PASSWORD', "toor");
 define ('DB_DATABASE', "social_login");
 define ('DB_HOST', "localhost");
 GLOBAL $mysqli;

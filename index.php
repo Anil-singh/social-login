@@ -4,7 +4,7 @@
 		//Sarting session
 	    session_start();
 	}
-	if(isset($_SESSION['user_email'])){
+	if(isset($_SESSION['user_name'])){
 		$username = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : "";
 		if(isset($_SESSION['user_img_url']))
 			echo "<img src='".$_SESSION['user_img_url']."'><br>";

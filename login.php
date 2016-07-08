@@ -1,9 +1,7 @@
 <?php
     session_start();
-    /* Checking whether user is already loggedin */
-    if(isset($_SESSION['user_email'])){
-        /*Redirecting loggeding user to index page */
-        header("location:index.php");
+    if(isset($_SESSION['twitter_id'])){
+        header('Location:index.php');
     }
 ?>
 <html>
@@ -11,14 +9,31 @@
         <title>Login</title>
         <style>
             .center{
-                position: absolute;
+                position: relative;
                 top: 50%;
                 left: 50%;
                 margin-left: -150px;
                 margin-top: -23px;
             }
         </style>
+        <link rel="stylesheet" href="assets/css/slide-social-buttons.css">
     </head>
-    <a href="facebook.php" title="Click here to login with facebook"><img class="center" src="assets/img/facebook.png"/></a>
+    <div>
+        Login using:<br><br>
+    </div>
+    <ul class="soc">
+        <!-- Facebook -->
+        <a href="facebook.php" class="slide-social">
+           <div class="soc-facebook" href="#"></div>
+        </a>
+        <!-- Twitter -->
+        <a href="twitter.php" class="slide-social">
+            <div class="soc-twitter" href="#"></div> 
+        </a>
+        <!-- Google+ -->
+        <a href="google.php" class="slide-social">
+            <div class="soc-google" href="#"></div>
+        </a>
+    </ul>
 </html>
 
