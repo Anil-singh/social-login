@@ -35,6 +35,30 @@
         /* Adding new user details in database */
         $result = $obj_user->addUser($first_name,$last_name,$email,$gender);
 
+### Login with Google
+	$gClient = new Google_Client();
+	$gClient->setApplicationName('');//Set your application name here
+	$gClient->setClientId($clientId);
+	$gClient->setClientSecret($clientSecret);
+	$gClient->setRedirectUri($redirectUrl);
+	$gClient->setApprovalPrompt('auto');
+	$google_oauthV2 = new Google_Oauth2Service($gClient);
+	$gClient->authenticate();
+        if ($gClient->getAccessToken()) {
+        	$user_profile = $google_oauthV2->userinfo->get();	
+        	$gClient->revokeToken();
+        } else {
+        	$authUrl = $gClient->createAuthUrl();
+        }
+        
+        $obj_user = new User();
+        /* Checking if user already exist in system and getting user details */
+        $arr = $obj_user->getUser($email);
+        if(empty($arr)){ 
+                //Record does not exist,insert to DB, set session and redirect to index.php
+                $result = $obj_user->addUser($first_name,$last_name,$email,$gender);
+        }
+
 
 ## Installation
 
