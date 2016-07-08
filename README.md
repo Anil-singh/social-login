@@ -43,8 +43,8 @@
         MySql 5.6.17
 
 ### Database - social_login.sql
-    Need to create a database named social_login and improt social_login.sql file to that db.This db users table will store 
-    users profiles data from social media sites. 
+    Need to create a database named social_login and improt social_login.sql file to that db.This db users table
+    will store users profiles data from social media sites. 
 
 ### Database configurations - db_config.php
     Need to update following database details in db_config.php file.
