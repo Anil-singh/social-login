@@ -59,4 +59,3 @@
 
 ## API Reference
     1. Facebook sdk for php from facebook.
-    # social-login
