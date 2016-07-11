@@ -79,7 +79,7 @@
 		$result = $obj_user->addUser($first_name,$last_name,$email,$gender,$twitter_id);
 	}
 	
-### Login with LinkedIn
+### Login with Linkedin
 
     /* Initiating linkedin pauth class */
     $client = new oauth_client_class;
@@ -114,7 +114,8 @@
         } elseif (strlen($client->access_token)) {
           // Linkedin userdata api call
           $success = $client->CallAPI(
-              'http://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,location,picture-url,public-profile-url,formatted-name)', 
+              'http://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,location,
+              picture-url,public-profile-url,formatted-name)', 
               'GET', array(
                 'format'=>'json'
               ), array('FailOnAccessError'=>true), $user);
@@ -141,7 +142,7 @@
     define ('DB_HOST', "host"); // Database host
 
 ### Social Media configurations - config.php
-    /*============Start - Facebook credentials ================================================*/
+    /*============Start - Social media credentials ================================================*/
     define('FACEBOOK_APP_ID','xxxxxxxxxxxx'); // Facebook app id 
     define('FACEBOOK_APP_SECRET','xxxxxxxxxxxxxxx'); // Facebook app secret
     define('TWITTER_APP_ID','xxxxxxxxxxxx'); // Twitter app id
@@ -154,7 +155,7 @@
     define('LINKEDIN_BASE_URL',''); // Linkedin app base url
     define('LINKEDIN_CALLBACK_URL',''); // Linkedin call back url
     define('LINKEDIN_SCOPE','r_basicprofile r_emailaddress'); // Linkedin data access scope;
-    /*============End - Facebook credentials ===================================================*/
+    /*============End - Social media credentials  ===================================================*/
 
 ## API Reference
     1. Facebook PHP sdk from Facebook.
