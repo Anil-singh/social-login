@@ -141,7 +141,7 @@
     define ('DB_HOST', "host"); // Database host
 
 ### Social Media configurations - config.php
-    /*============Start - Facebook credentials ================================================*/
+    /*============Start - Social media credentials ================================================*/
     define('FACEBOOK_APP_ID','xxxxxxxxxxxx'); // Facebook app id 
     define('FACEBOOK_APP_SECRET','xxxxxxxxxxxxxxx'); // Facebook app secret
     define('TWITTER_APP_ID','xxxxxxxxxxxx'); // Twitter app id
@@ -154,7 +154,7 @@
     define('LINKEDIN_BASE_URL',''); // Linkedin app base url
     define('LINKEDIN_CALLBACK_URL',''); // Linkedin call back url
     define('LINKEDIN_SCOPE','r_basicprofile r_emailaddress'); // Linkedin data access scope;
-    /*============End - Facebook credentials ===================================================*/
+    /*============End - Social media credentials  ===================================================*/
 
 ## API Reference
     1. Facebook PHP sdk from Facebook.
