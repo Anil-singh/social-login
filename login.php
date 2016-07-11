@@ -34,6 +34,10 @@
         <a href="google.php" class="slide-social">
             <div class="soc-google" href="#"></div>
         </a>
+        <!-- Linkedin -->
+        <a href="linkedin.php" class="slide-social">
+            <div class="soc-linkedin" href="#"></div>
+        </a>
     </ul>
 </html>
 
