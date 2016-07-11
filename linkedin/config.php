@@ -1,7 +1,7 @@
 <?php
-$baseURL = 'http://localhost/social_login/login.php';
-$callbackURL = 'http://localhost/social_login/linkedin.php';
-$linkedinApiKey = '';
-$linkedinApiSecret = '';
-$linkedinScope = 'r_basicprofile r_emailaddress';
+$baseURL = LINKEDIN_BASE_URL;
+$callbackURL = LINKEDIN_CALLBACK_URL;
+$linkedinApiKey = LINKEDIN_APP_ID;
+$linkedinApiSecret = LINKEDIN_APP_SECRET;
+$linkedinScope = LINKEDIN_APP_SCOPE; //'r_basicprofile r_emailaddress';
 ?>

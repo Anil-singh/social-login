@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 include('linkedin/process.php');
 $user_profile = isset($user_profile) ? $user_profile : "";
     if($user_profile == ""){
-        echo "Some error occured while registering";
+        echo "Some error occured while registering this user";
         exit;
     }
     $first_name = isset($user_profile['firstName']) ? $user_profile['firstName'] : "";

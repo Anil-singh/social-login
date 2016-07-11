@@ -2,7 +2,7 @@
         Social login contains sample code in php to enable a user login and registration from social media 
         sites Facebook,Linkedin,Twitter,Google.
 
-## Example
+## Example - Code Sample
 ### Login with Facebook
         //Intiating Facebook class
         $facebook = new Facebook(array(
@@ -79,6 +79,50 @@
 		$result = $obj_user->addUser($first_name,$last_name,$email,$gender,$twitter_id);
 	}
 	
+### Login with LinkedIn
+
+    /* Initiating linkedin pauth class */
+    $client = new oauth_client_class;
+
+    /* Intialing oauth_client_class config variable */
+    $client->debug = false;
+    $client->debug_http = true;    
+    $client->redirect_uri = $callbackURL;
+    $client->client_id = $linkedinApiKey;
+    $application_line = __LINE__;
+    $client->client_secret = $linkedinApiSecret;
+
+    /* Checking for client id */
+    if (strlen($client->client_id) == 0 || strlen($client->client_secret) == 0)
+    die('Please go to LinkedIn Apps page https://www.linkedin.com/secure/developer?newapp= , '.
+      'create an application, and in the line '.$application_line.
+      ' set the client_id to Consumer key and client_secret with Consumer secret. '.
+      'The Callback URL must be '.$client->redirect_uri).' Make sure you enable the '.
+      'necessary permissions to execute the API calls your application needs.';
+    /* API permissions */
+
+    /*Adding app data access scope */
+    $client->scope = $linkedinScope;
+
+    /*Initializing client */
+    if (($success = $client->Initialize())) {        
+      /* User authentcation process*/  
+      if (($success = $client->Process())) {
+        if (strlen($client->authorization_error)) {
+          $client->error = $client->authorization_error;
+          $success = false;
+        } elseif (strlen($client->access_token)) {
+          // Linkedin userdata api call
+          $success = $client->CallAPI(
+              'http://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,location,picture-url,public-profile-url,formatted-name)', 
+              'GET', array(
+                'format'=>'json'
+              ), array('FailOnAccessError'=>true), $user);
+           $user_profile = (array)$user;          
+        }       
+      }
+      $success = $client->Finalize($success);
+    }
 ## Installation
 
 ### Dependecies
@@ -100,7 +144,21 @@
     /*============Start - Facebook credentials ================================================*/
     define('FACEBOOK_APP_ID','xxxxxxxxxxxx'); // Facebook app id 
     define('FACEBOOK_APP_SECRET','xxxxxxxxxxxxxxx'); // Facebook app secret
+    define('TWITTER_APP_ID','xxxxxxxxxxxx'); // Twitter app id
+    define('TWITTER_APP_SECRET','xxxxxxxxxxxxxxx'); // Twitter app secret
+    define('TWITTER_CALLBACK_URL','Call back url'); // Twitter callback URL
+    define('GOOGLE_APP_ID','xxxxxxxxxxxx'); // Google app id
+    define('GOOGLE_APP_SECRET','xxxxxxxxxxxxxxx'); // Google secret
+    define('LINKEDIN_APP_ID',''); // Linkedin app id
+    define('LINKEDIN_APP_SECRET',''); // Linkedin app secret
+    define('LINKEDIN_BASE_URL',''); // Linkedin app base url
+    define('LINKEDIN_CALLBACK_URL',''); // Linkedin call back url
+    define('LINKEDIN_SCOPE','r_basicprofile r_emailaddress'); // Linkedin data access scope;
     /*============End - Facebook credentials ===================================================*/
 
 ## API Reference
-    1. Facebook sdk for php from facebook.
+    1. Facebook PHP sdk from Facebook.
+    2. Twitter PHP sdk from Twitter.
+    3. Google PHP sdk from Google.
+    4. LinkedIn PHP sdk from LinkedIn.
+
