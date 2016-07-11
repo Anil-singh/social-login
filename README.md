@@ -114,7 +114,8 @@
         } elseif (strlen($client->access_token)) {
           // Linkedin userdata api call
           $success = $client->CallAPI(
-              'http://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,location,picture-url,public-profile-url,formatted-name)', 
+              'http://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,location,
+              picture-url,public-profile-url,formatted-name)', 
               'GET', array(
                 'format'=>'json'
               ), array('FailOnAccessError'=>true), $user);
