@@ -79,7 +79,7 @@
 		$result = $obj_user->addUser($first_name,$last_name,$email,$gender,$twitter_id);
 	}
 	
-### Login with LinkedIn
+### Login with Linkedin
 
     /* Initiating linkedin pauth class */
     $client = new oauth_client_class;
